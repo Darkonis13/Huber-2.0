@@ -55,11 +55,14 @@ choferConMenosViajes choferes = foldl1 compararViajes choferes
 
 compararViajes ::  Chofer -> Chofer -> Chofer
 compararViajes chofer1 chofer2
- |length(viajesHechos chofer1)>length(viajesHechos chofer2) = chofer2
+ |tieneMasViajes chofer1 chofer2 = chofer2
  |otherwise = chofer1
 
+tieneMasViajes :: Chofer->Chofer->Bool
+tieneMasViajes unChofer otroChofer = length(viajesHechos chofer1) > length(viajesHechos chofer2)
+
 efectuarViaje :: Viaje->Chofer->Chofer
-efectuarViaje unViaje unChofer = unChofer {viajesHechos = (viajesHechos unChofer) ++ [unViaje]}
+efectuarViaje unViaje unChofer = unChofer { viajesHechos = unViaje : (viajesHechos unChofer) }
 
 --PUNTO 7
 --a
