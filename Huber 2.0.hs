@@ -59,7 +59,7 @@ compararViajes chofer1 chofer2
  |otherwise = chofer1
 
 tieneMasViajes :: Chofer->Chofer->Bool
-tieneMasViajes unChofer otroChofer = length(viajesHechos chofer1) > length(viajesHechos chofer2)
+tieneMasViajes unChofer otroChofer = length(viajesHechos unChofer) > length(viajesHechos otroChofer)
 
 efectuarViaje :: Viaje->Chofer->Chofer
 efectuarViaje unViaje unChofer = unChofer { viajesHechos = unViaje : (viajesHechos unChofer) }
